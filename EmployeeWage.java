@@ -67,6 +67,33 @@ public class EmployeeWage {
 
 	}
 
+	public int calWageUsingHoursAndMonth() {
+		int empHrs = 0;
+		int empWage = 0;
+		int totalWorkingHrs = 0;
+		int totalWorkingDays = 0;
+		int totalWage;
+		for (totalWorkingDays = 0; totalWorkingHrs <= MAX_WORKING_HRS
+				&& totalWorkingDays < NUM_OF_WORKING_DAYS; totalWorkingDays++) {
+			// while(totalWorkingHrs <= MaxWorkingHrs && totalWorkingDays <
+			// numOfWorkingDays){
+			int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+			System.out.println("Random Number::" + empCheck);
+			switch (empCheck) {
+			case HALF_TIME:
+				empHrs = 4;
+				break;
+			case FULL_TIME:
+				empHrs = 8;
+				break;
+			default:
+				empHrs = 0;
+			}
+			totalWorkingHrs = totalWorkingHrs + empHrs;
+		}
+		return totalWage = totalWorkingHrs * WAGEPERHOUR;
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Welcome To Employee Wage Computation Day Five::");
 		EmployeeWage emp = new EmployeeWage();
@@ -75,6 +102,7 @@ public class EmployeeWage {
 		System.out.println("Calculate Daily Wage::" + emp.calculateDailyWage());
 		System.out.println("Add Part Time wage::" + emp.partTimeWage());
 		System.out.println("Calculate  Wage For Month::" + emp.wageForMonth());
+		System.out.println("Calculate  Wage For Month and Working Hours Using::" + emp.calWageUsingHoursAndMonth());
 
 	}
 }
